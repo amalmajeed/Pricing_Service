@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{current}}'s Alerts</h1>
+{% if alerts == [] %}
+<div class="alert alert-danger" role="alert">
+    No Alerts Found in DB !
+</div>
+{% else %}
+
+<ul class="list-group mb-3">
+    <div class="container">
+        {% for i in alerts %}
+        <div class="row">
+            <div class="col-sm">
+            <li class="list-group-item">
+                <a href="{{ i.item.url }}">{{ i.name }}</a>
+            </li>
+            </div>
+            <div class="col-sm">
+                <a href="{{ url_for('alerts.edit_alert',alert_id=i._id) }}">
+                <button type="button" class="btn btn-primary mx-auto">Edit</button>
+                </a>
+            </div>
+            <div class="col-sm">
+                <a href="{{ url_for('alerts.delete_alert',alert_id=i._id) }}">
+                <button type="button" class="btn btn-danger mx-auto">Permanently Delete</button>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</ul>
+{% endif %}
+<div>
+    <a href="{{ url_for('alerts.new_alert') }}">
+        <button type="button" class="btn btn-success mt-7">Create New Alert</button>
+    </a>
+</div>
+{% endblock %}

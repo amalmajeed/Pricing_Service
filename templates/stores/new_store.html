@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<header><h1>Create New Store</h1></header>
+<section class="create-store-form">
+    <form method="post" action="/stores/new">
+        <div class="form-group">
+            <label for="name">Store Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="'Ben and Jerry's' etc"/>
+        </div>
+
+        <div class="form-group">
+            <label for="url_prefix">Store URL-Prefix</label>
+            <input type="text" id="url_prefix" name="url_prefix" class="form-control"
+                   placeholder="https://www.nike.com  etc"/>
+        </div>
+        <div class="form-group">
+            <label for="tag_name">Tag Name</label>
+            <input type="text" id="tag_name" name="tag_name" class="form-control"
+                   placeholder="p / span / div  etc"/>
+        </div>
+        <div class="form-group">
+            <label for="query">Tag Attributes</label>
+            <input type="text" id="query" name="query" class="form-control" placeholder='{"class" : "price price--large"}'
+                   aria-describedby="storetagHelp"/>
+            <small id="storetagHelp" class="form-text text-muted"> Attributes of the tag under which the price of item is encoded in the store website
+            </small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</section>
+
+{% endblock %}

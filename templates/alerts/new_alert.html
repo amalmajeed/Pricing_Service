@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<header><h1>Create New Alert</h1></header>
+<section class="create-alert-form">
+    <form method="post" action="/alerts/new">
+        <div class="form-group">
+            <label for="name">Alert Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="'Iphone 7' etc"/>
+        </div>
+
+        <div class="form-group">
+            <label for="item_url">Item URL</label>
+            <input type="text" id="item_url" name="item_url" class="form-control"
+                   placeholder="https://www.johnlewis.com/bla-bla-bla/p3171941  etc"/>
+        </div>
+        <div class="form-group">
+            <label for="price_limit">Price Limit</label>
+            <input type="text" id="price_limit" name="price_limit" class="form-control" placeholder="1245.50"
+                   aria-describedby="priceLimitHelp"/>
+            <small id="priceLimitHelp" class="form-text text-muted"> Under which price of the item should you be
+                notified ?
+            </small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</section>
+
+{% endblock %}

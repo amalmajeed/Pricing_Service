@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<header><h1>Edit {{store.name}}</h1></header>
+<section class="update-store-form">
+    <form method="post" action="/stores/edit/{{store._id}}">
+        <div class="form-group">
+            <label for="name">Store Name</label>
+            <input type="text" id="name" name="name" class="form-control" value="{{ store.name }}" disabled/>
+        </div>
+
+        <div class="form-group">
+            <label for="url_prefix">Store URL Prefix</label>
+            <input type="text" id="url_prefix" name="url_prefix" class="form-control"
+                   value="{{ store.url_prefix }}" aria-describedby="urlprefixHelp"/>
+            <small id="urlprefixHelp" class="form-text text-muted"> What URL will your items start with ?
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="tag_name">Tag Name</label>
+            <input type="text" id="tag_name" name="tag_name" class="form-control"
+                   value="{{ store.tag_name }}"/>
+        </div>
+        <div class="form-group">
+            <label for="query">Tag Attributes</label>
+            <input type="text" id="query" name="query" class="form-control" value="{{ store.query }}"
+                   aria-describedby="storetagHelp"/>
+            <small id="storetagHelp" class="form-text text-muted"> Attributes of the tag under which the price of item is encoded in the store website
+            </small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</section>
+
+{% endblock %}
