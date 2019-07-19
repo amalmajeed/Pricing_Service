@@ -1,10 +1,12 @@
 from typing import Dict
 import pymongo
 import os
+import re
 
 class Database(object):
-    URI = os.environ.get('MONGOLAB_URI')
-    DATABASE = pymongo.MongoClient(URI).get_default_database()
+    RE = re.compile(r'.*:[1-9]+')
+    URI = RE.match(os.environ.get('MONGOLAB_URI')).group(0)
+    DATABASE = pymongo.MongoClient(URI).get_database('heroku_jnzbgb2c')
 
     @staticmethod
     def insert(collection : str , data : Dict):
