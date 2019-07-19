@@ -7,8 +7,9 @@ class Database(object):
     # RE = re.compile(r'.*:[1-9]+')
     # URI = RE.match(os.environ.get('MONGOLAB_URI')).group(0)
     # DATABASE = pymongo.MongoClient(URI).get_database('heroku_jnzbgb2c')
-    URI = os.environ.get('MONGOLAB_URI')
-    DATABASE = pymongo.MongoClient(URI).get_database()
+    #URI = os.environ.get('MONGOLAB_URI')
+    URI = 'mongodb://amalmajeed:Godblessus786@ds151817.mlab.com:51817'
+    DATABASE = pymongo.MongoClient(URI).get_database("heroku_jnzbgb2c")
 
     @staticmethod
     def insert(collection : str , data : Dict):
