@@ -1,11 +1,10 @@
 from typing import Dict
 import pymongo
-import os
+#import os
 
 class Database(object):
-    URI = os.environ.get('MONGOLAB_URI')
-    Client = pymongo.MongoClient(URI)
-    DATABASE = Client['heroku_jnzbgb2c']
+    URI = "mongodb://amalmajeed:Godblessus786@ds151817.mlab.com:51817/heroku_jnzbgb2c"
+    DATABASE = pymongo.MongoClient(URI).get_database()
 
     @staticmethod
     def insert(collection : str , data : Dict):
@@ -26,4 +25,5 @@ class Database(object):
     @staticmethod
     def remove(collection: str, query: Dict) -> Dict:
         return Database.DATABASE[collection].remove(query)
+
 
