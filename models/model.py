@@ -36,7 +36,7 @@ class Model(metaclass=ABCMeta):
     @classmethod
     def find_one_by(cls : Type[T] ,attribute : str, value : Union[str,Dict]) -> T:
         x = Database.find_one(cls.collection , {attribute : value})
-        return cls(**x)
+        return cls(**x[0])
 
     @classmethod
     def find_many_by(cls : Type[T] ,attribute : str, value : str) -> List[T]:
