@@ -8,7 +8,6 @@ class Database(object):
     # URI = RE.match(os.environ.get('MONGOLAB_URI')).group(0)
     # DATABASE = pymongo.MongoClient(URI).get_database('heroku_jnzbgb2c')
     URI = os.environ.get('MONGODB_URI')
-    #URI = 'mongodb://amalmajeed:Godblessus786@ds151817.mlab.com:51817'
     DATABASE = pymongo.MongoClient(URI).get_default_database()
 
     @staticmethod
