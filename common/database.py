@@ -30,4 +30,3 @@ class Database(object):
     @staticmethod
     def remove(collection: str, query: Dict) -> Dict:
         return Database.DATABASE[collection].remove(query)
-
